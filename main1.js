@@ -29,7 +29,6 @@ addItem.style.fontWeight = 'bold';
 
 // Get ELEMENTS by CLASS NAME
 
-
 let items = document.getElementsByClassName('item');
 console.log(items);
 console.log(items[1]);
@@ -37,7 +36,6 @@ items[1].textContent = 'glass';
 items[2].style.backgroundColor = "yellow";
 
 //items[0].style.fontWeight = 'bold';
-
 
 for(let i =0;i<items.length;i++)
 {
