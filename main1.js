@@ -29,6 +29,7 @@ addItem.style.fontWeight = 'bold';
 
 // Get ELEMENTS by CLASS NAME
 
+
 let items = document.getElementsByClassName('item');
 console.log(items);
 console.log(items[1]);
