@@ -29,7 +29,7 @@ addItem.style.fontWeight = 'bold';
 
 // Get ELEMENTS by CLASS NAME
 
-let items = document.getElementsByClassName('item');
+/* let items = document.getElementsByClassName('item');
 console.log(items);
 console.log(items[1]);
 items[1].textContent = 'glass';
@@ -37,8 +37,25 @@ items[2].style.backgroundColor = "yellow";
 
 items[0].style.fontWeight = 'bold';
 
+
 for(let i =0;i<items.length;i++)
 {
     items[i].style.fontWeight = 'bold';
 }
+*/
 
+//get ELEMENTS by Tag Name
+
+let li = document.getElementsByTagName('li');
+console.log(li);
+console.log(li[1]);
+li[1].textContent = 'glass';
+li[2].style.backgroundColor = "yellow";
+
+li[0].style.fontWeight = 'bold';
+
+
+for(let i =0;i<li.length;i++)
+{
+    li[i].style.fontWeight = 'bold';
+}
