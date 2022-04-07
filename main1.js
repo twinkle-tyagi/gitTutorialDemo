@@ -62,7 +62,7 @@ for(let i =0;i<li.length;i++)
 
 // Query Selector
 
-let header = document.querySelector('#main-header');
+/* let header = document.querySelector('#main-header');
 header.style.borderBottom = 'solid 3px #ccc';
 
 let input = document.querySelector('input');
@@ -78,9 +78,23 @@ let last = document.querySelector('.item:last-child');
 last.style.color = 'blue';
 
 let second = document.querySelector('.item:nth-child(2)');
-second.style.color = 'green';
+second.style.color = 'green'; */
 
 // Query Selector All
 
-//let titles = document.querySelectorAll('.title');
-//console.log(titles);
+let titles = document.querySelectorAll('.title');
+console.log(titles);
+titles[0].textContent = "hello";
+
+let odd = document.querySelectorAll('li:nth-child(odd)');
+let even = document.querySelectorAll('li:nth-child(even)');
+
+
+for(let i =0;i<odd.length;i++)
+{
+    odd[i].style.backgroundColor = 'green';
+    //even[i].style.backgroundColor = 'red';
+}
+
+let lis = document.querySelectorAll('li');
+lis[2].style.display = "none";
