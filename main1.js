@@ -82,6 +82,7 @@ second.style.color = 'green'; */
 
 // Query Selector All
 
+/*
 let titles = document.querySelectorAll('.title');
 console.log(titles);
 titles[0].textContent = "hello";
@@ -98,3 +99,35 @@ for(let i =0;i<odd.length;i++)
 
 let lis = document.querySelectorAll('li');
 lis[2].style.display = "none";
+*/
+
+let itemList = document.querySelector('.items');
+// console.log(itemList.parentNode);
+// itemList.parentNode.style.backgroundColor = 'red';
+// console.log(itemList.parentNode.parentNode);
+// console.log(itemList.parentNode.parentNode.parentNode);
+
+//console.log(itemList.parentElement);
+//itemList.parentElement.style.backgroundColor = 'red';
+// console.log(itemList.parentElement.parentElement);
+// console.log(itemList.parentElement.parentElement.parentElement);
+
+// console.log(itemList.childNodes); // not recommended as it also show whitespaces.
+//console.log(itemList.children);
+//console.log(itemList.children[1]);
+//itemList.children[1].style.backgroundColor = 'yellow';
+
+//console.log(itemList.firstChild);  // gives us white-spaces as first child
+//console.log(itemList.firstElementChild);
+//itemList.firstElementChild.textContent = 'Hello';
+
+//console.log(itemList.lastElementChild);
+//itemList.lastElementChild.textContent = "Hello last";
+
+// console.log(itemList.nextSibling);  // text node, white-spaces
+// console.log(itemList.nextElementSibling);
+
+//console.log(itemList.previousSibling);
+console.log(itemList.previousElementSibling);
+itemList.previousElementSibling.style.color = 'green';
+
