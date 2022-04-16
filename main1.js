@@ -128,6 +128,38 @@ let itemList = document.querySelector('.items');
 // console.log(itemList.nextElementSibling);
 
 //console.log(itemList.previousSibling);
-console.log(itemList.previousElementSibling);
-itemList.previousElementSibling.style.color = 'green';
+//console.log(itemList.previousElementSibling);
+//itemList.previousElementSibling.style.color = 'green';
+
+let newDiv = document.createElement('div'); //create new div element
+newDiv.className = 'hello1';
+newDiv.id = 'hello1';
+newDiv.setAttribute('title','Hello Div'); // to set attribute (what attribute you want, its value)
+
+// to add content to div, create new text node, then append it to div
+let newDivText = document.createTextNode('hEllo');
+newDiv.appendChild(newDivText); //add text to div
+
+//newDiv is still in JS and not in HTML file, to insert it there we need 
+// to find where to insert and insert it there.
+
+//document.querySelector(main where we have to insert, div/form/section inside main);
+let container = document.querySelector('section #my-form');
+
+// querySelector(main, section/form/div in main);
+let h1 = document.querySelector('section h1');
+container.insertBefore(newDiv, h1); //(what we inserting, what we inserting before)
+console.log(newDiv);
+
+newDiv.style.fontSize = '10px';
+
+// adding hEllo before item1 in li.
+let newitem = document.createElement('li');
+newitem.className = 'item';
+newitem.appendChild(document.createTextNode('hEllo'));
+
+let newli = document.querySelector('ul .item');
+// (position to insert, what to insert);
+newli.insertAdjacentElement('beforebegin', newitem);
+
 
