@@ -130,7 +130,7 @@ let itemList = document.querySelector('.items');
 //console.log(itemList.previousSibling);
 //console.log(itemList.previousElementSibling);
 //itemList.previousElementSibling.style.color = 'green';
-
+/*
 let newDiv = document.createElement('div'); //create new div element
 newDiv.className = 'hello1';
 newDiv.id = 'hello1';
@@ -161,5 +161,5 @@ newitem.appendChild(document.createTextNode('hEllo'));
 let newli = document.querySelector('ul .item');
 // (position to insert, what to insert);
 newli.insertAdjacentElement('beforebegin', newitem);
-
+*/
 

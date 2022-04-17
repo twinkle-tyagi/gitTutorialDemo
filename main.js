@@ -1,3 +1,5 @@
+/*
+
 const butt = document.querySelector('.btn');
 
 butt.addEventListener('click', (e) => {
@@ -52,3 +54,5 @@ function onClick(e)
         emails.value='';
     }
 }
+
+*/
