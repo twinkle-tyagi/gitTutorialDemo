@@ -23,9 +23,9 @@
 //heade.innerHTML = '<h3> nice man</h3>';
 //header1.style.borderBottom = 'solid 3px #000';
 
-let addItem = document.getElementById('add-user');
-addItem.style.color = 'green';
-addItem.style.fontWeight = 'bold';
+//let addItem = document.getElementById('add-user');
+//addItem.style.color = 'green';
+//addItem.style.fontWeight = 'bold';
 
 // Get ELEMENTS by CLASS NAME
 
@@ -101,7 +101,7 @@ let lis = document.querySelectorAll('li');
 lis[2].style.display = "none";
 */
 
-let itemList = document.querySelector('.items');
+//let itemList = document.querySelector('.items');
 // console.log(itemList.parentNode);
 // itemList.parentNode.style.backgroundColor = 'red';
 // console.log(itemList.parentNode.parentNode);
