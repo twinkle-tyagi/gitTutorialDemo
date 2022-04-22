@@ -72,7 +72,7 @@ function filterItems(e) //filter method
     //get all the li in items list
     let items = itemlist.getElementsByTagName('li');
 
-    let des = document.getElementById('description');
+    let des = document.getElementById('description').value;
     //convert to an array
     Array.from(items).forEach((item) => 
     {
