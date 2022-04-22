@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <form onsubmit="store(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="username">
+            <label for="email">Email:</label>
+            <input type="text" id="emailId"> 
+            <label for="phone">Phone:</label>
+            <input type="text" id="phoneNum">
+            <input class="btn" type="submit" value="Submit">
+        </form>
+    </body>
+</html>
+
+<script>
+    function store(event)
+    {
+        event.preventDefault();
+        const name = event.target.username.value;
+        const email = event.target.emailId.value;
+        const phone = event.target.phoneNum.value;
+        const obj = {
+            name, // can also write name: name,
+            email, // email: email,
+            phone // phone: phone
+        }
+
+        localStorage.setItem('userDetails',JSON.stringify(obj));
+
+    }
+
+    window.onload = () => {
+        console.log(localStorage.getItem('userDetails'));
+
+    }
+</script>
