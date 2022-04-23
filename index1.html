@@ -1,6 +1,6 @@
 <html>
     <body>
-        <form onsubmit="store(event)">
+        <form onsubmit="store(event)" id = "myform">
             <label for="name">Name:</label>
             <input type="text" id="username">
             <label for="email">Email:</label>
@@ -13,6 +13,7 @@
 </html>
 
 <script>
+   /* for single user only
     function store(event)
     {
         event.preventDefault();
@@ -28,9 +29,53 @@
         localStorage.setItem('userDetails',JSON.stringify(obj));
 
     }
+*/
+
+let myform = document.getElementById('myform');
+
+let newD = document.createElement('ul');
+newD.className = 'ul1';
+myform.appendChild(newD);
+
+
+function store(event)
+        {
+            event.preventDefault();
+            let name = event.target.username.value;
+            let email = event.target.emailId.value;
+            let phone = event.target.phoneNum.value;
+            let key1 = name+email;
+            let obj = {
+                name,
+                email,
+                phone
+            }
+
+            localStorage.setItem(key1,JSON.stringify(obj));
+            let newli = document.createElement('li');
+            newli.id = 'li';
+            newli.appendChild(document.createTextNode(name));
+            newli.appendChild(document.createTextNode(email));
+            newli.appendChild(document.createTextNode(phone));
+            newD.appendChild(newli);
+
+            alert("booking made name = "+name+" email = " +email );
+
+        }
+
+        // to get all the keys in local storage.
+        for(let i =0;i<localStorage.length;i++)
+        {
+            console.log(localStorage.key(i));
+        }
+
+
 
     window.onload = () => {
-        console.log(localStorage.getItem('userDetails'));
-
+        Object.keys(localStorage).forEach( (key)=>
+        {
+            console.log(localStorage.getItem(key));
+        });
+        
     }
 </script>
