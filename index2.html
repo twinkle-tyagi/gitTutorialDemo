@@ -1,0 +1,140 @@
+<html>
+    <body>
+        <form onsubmit="store(event)" id = "myform">
+            <label for="name">Name:</label>
+            <input type="text" id="username">
+            <label for="email">Email:</label>
+            <input type="text" id="emailId"> 
+            <label for="phone">Phone:</label>
+            <input type="text" id="phoneNum">
+            <input class="btn" type="submit" value="Submit">
+        </form>
+        <ul id = 'userlist'>
+            
+        </ul>
+    </body>
+</html>
+
+<script>
+   /* for single user only
+    function store(event)
+    {
+        event.preventDefault();
+        const name = event.target.username.value;
+        const email = event.target.emailId.value;
+        const phone = event.target.phoneNum.value;
+        const obj = {
+            name, // can also write name: name,
+            email, // email: email,
+            phone // phone: phone
+        }
+
+        localStorage.setItem('userDetails',JSON.stringify(obj));
+
+    }
+*/
+
+function store(event)
+        {
+            event.preventDefault();
+            let name = event.target.username.value;
+            let email = event.target.emailId.value;
+            let phone = event.target.phoneNum.value;
+            let key1 = email; // as unique key
+            let obj = {
+                name,
+                email,
+                phone
+            }
+
+            // to set items in storage
+            // localStorage.setItem(key1,JSON.stringify(obj));
+            
+            //or we can write above code like this, obj.email will act as key
+            localStorage.setItem(obj.email, JSON.stringify(obj));
+
+            showUsers(obj);
+        }
+
+        function showUsers(obj)
+        {
+            document.getElementById('username').value = ' ';
+            document.getElementById('emailId').value = ' ' ;
+            document.getElementById('phoneNum').value = ' ';  
+
+            if(localStorage.getItem(obj.email) !== null) 
+            {
+                removeFromScreen(obj.email);
+            }
+            // get parent node where to add (ul)
+            const parentNode = document.getElementById('userlist');
+
+            //create li to into ul
+            // uses ' ' around parameter when passing parameter. Else the code will run fine but value will not be displayed,on console it will show null
+            const childNode = `<li id=${obj.email}> username = ${obj.name}, Email-Id = ${obj.email}, Phone Number = ${obj.phone} <button onclick = deleteUser('${obj.email}')> X </button> 
+            <button onclick = editUser('${obj.email}')> Edit </button> </li>`
+
+            //parentNode.innerHTML = childNode; // this will overwrite previous li in innerHTML.
+
+            // to add new li each time and not overwrite
+            parentNode.innerHTML = parentNode.innerHTML + childNode;
+        }
+
+        // to get all the keys in local storage.
+        for(let i =0;i<localStorage.length;i++)
+        {
+            console.log(localStorage.key(i));
+        }
+
+        function deleteUser(email)
+        {
+            console.log("deleted is " + email);
+            localStorage.removeItem(email); // removes from storage
+            removeFromScreen(email); // removes from li
+        }
+
+        function removeFromScreen(email)
+        {
+            const parentNode = document.getElementById('userlist');
+            const child = document.getElementById(email);
+
+            // test if element to delete exist or not. If we try to delete element which is not present it will trow error
+            if(child)
+            {
+                parentNode.removeChild(child); 
+            }
+
+        }
+
+        // to edit user 3 steps:
+        // 1. populate the text field on web page with previous value.
+        // 2. remove from li.
+        // 3. remove from storage.
+
+        function editUser(emaile)
+        {
+            // 1.a get emaile item from local storage, convert to object. 
+            const nodee = JSON.parse(localStorage.getItem(emaile));
+
+            // 1.b set values of input boxes.
+            document.getElementById('username').value = nodee.name;
+            document.getElementById('emailId').value = nodee.email;
+            document.getElementById('phoneNum').value = nodee.phone;
+
+            // 2. remove from storage
+            // 3. remove from li
+            deleteUser(emaile);
+
+        }
+
+        window.addEventListener('DOMContentLoaded', () =>
+        {
+            Object.keys(localStorage).forEach((key) =>
+            {
+                detail = localStorage.getItem(key);
+                stringDetail = JSON.parse(detail);
+                showUsers(stringDetail);
+            });
+        });
+        
+</script>
