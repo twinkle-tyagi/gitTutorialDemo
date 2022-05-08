@@ -1,0 +1,56 @@
+<html>
+    <body>
+        <script>
+            /* var obj = {num: 2};
+            var student = {age: 20};
+
+            function add(a, b)
+            {
+                return this.num + a + b;
+            }
+
+            function printAge()
+            {
+                return this.age;
+            }
+
+            //var arr = [1,2];
+            //add.call(obj, 2, 3);
+            //add.apply(obj, arr);
+            //var b = add.bind(obj);
+            var b = printAge.bind(student);
+            console.log(b()); */
+
+            //let mul = function(x, y)
+            //{
+            //    console.log(x*y);
+            //}
+
+            let multiply = function (x)  // using closures
+            {
+                return function (y)
+                {
+                    console.log(x*y);
+                }
+            }
+            let multiBy2 = multiply(2);
+            multiBy2(5);
+
+            let multiBy3 = multiply(3);
+            multiBy3(5);
+
+            /*
+            //using curring and bind
+            let mulBy2 = mul.bind(this, 2);
+            mulBy2(3);
+
+            //let mulBy2 = mul.bind(this, );
+            //mulBy2(5, 10);
+
+            let mulBy3 = mul.bind(this, 3);
+            mulBy3(5);
+            */
+
+        </script>
+    </body>
+</html>
