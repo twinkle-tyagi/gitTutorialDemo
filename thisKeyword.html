@@ -1,0 +1,192 @@
+<html>
+    <body>
+        <script>
+            /*
+            this.table = 'Window table';
+            //console.log(window.table);
+
+            const cleanTable = function()
+                {
+                    console.log(`cleaning ${this.table}`); // this should not be accessible inside cleanTable function if we use strict. to overcome this we use call()
+                }
+
+                cleanTable.call(this);
+
+
+
+            this.garage = {  // we are creating a public, that resides in global space.
+                table: 'garage table',
+                cleanTable()
+                {
+                    console.log(`cleaning ${this.table}`);
+                }
+            };
+            //console.log(this.garage.table);  // to access table property of garage object 
+            //console.log( window.garage.table); // same as this keyword
+
+            let johnRoom = {
+                table: 'john table',
+                cleanTable()
+                {
+                    console.log(`cleaning ${this.table}`);
+                }
+            };
+            //console.log(this.johnRoom.table); // will give error because johnRoom is private space.
+            //console.log(johnRoom.table);  // to access john table.
+
+            johnRoom.cleanTable(); // to access cleanTable function in john
+            this.garage.cleanTable(); // to access cleanTable function in garage
+            */
+
+            /*
+            this.table = 'window table';
+            
+            const cleanTable = function(soap)
+                {
+                    console.log(`cleaning ${this.table}`);
+                }
+
+            cleanTable.call(this);
+
+            this.garage = {
+                table: 'garage table',
+            };
+
+            let johnRoom = {
+                table: 'john table',
+            };
+
+            cleanTable.call(this,'some soap'); // call on global variable
+            cleanTable.call(this.garage, 'some soap'); 
+            cleanTable.call(johnRoom, 'some soap');
+            */
+
+            //this.table = 'window table';
+            
+            /*
+            const cleanTable = function(soap)
+                {
+                    // Method-1: assign this to variable and then use that variable to call
+                    let that = this;
+                    const innerFunction = function(soap1)
+                    {
+                        //console.log(`cleaning ${this.table} using ${soap1}`); // will not give solution.
+                        console.log(`cleaning ${that.table} using ${soap1}`); // Method-1 will give answer
+                    }
+                    innerFunction(soap);
+                } */
+
+                /*
+                const cleanTable = function(soap)
+                {
+                    // Method-2 & 3: using call or bind.
+                    const innerFunction = function(soap1)
+                    {
+                        console.log(`cleaning ${this.table} using ${soap1}`);
+                    }
+                    //innerFunction.call(this, soap); // Using call
+                    innerFunction.bind(this)(soap); // using bind
+                }
+                */
+
+                /*
+                const cleanTable = function(soap)
+                {
+                    // Method-4: using arrow function. Arrow function will take this from outer scope to use it.
+                    const innerFunction =(soap1) => {
+                        console.log(`cleaning ${this.table} using ${soap1}`);
+                    }
+                    innerFunction(soap);
+                }
+
+            this.garage = {
+                table: 'garage table',
+            };
+
+            let johnRoom = {
+                table: 'john table',
+            };
+
+            cleanTable.call(this,'some soap'); // call on global variable
+            cleanTable.call(this.garage, 'some soap'); 
+            cleanTable.call(johnRoom, 'some soap');
+            */
+
+            /*
+            // Constructors.
+            this.table = 'window table';
+            const cleanTable = function(soap)
+                {
+                    console.log(`cleaning ${this.table} using ${soap}`);
+                };
+            this.garage = {
+                table: 'garage table'
+            };
+
+            //constructors
+            let createRoom = function(name)
+            {
+                this.table = `${name}'s table`;
+            }
+
+            const johnRoom = new createRoom('john');
+            const jillRoom = new createRoom('Jill');
+
+            cleanTable.call(this,'some soap'); // call on global variable
+            cleanTable.call(this.garage, 'some soap'); 
+            cleanTable.call(johnRoom, 'some soap');
+            cleanTable.call(jillRoom, 'some soap');
+            */
+
+            /*
+            // Using Prototype
+
+            this.table = 'window table';
+        
+            this.garage = {
+                table: 'garage table'
+            };
+
+            let createRoom = function(name){
+                this.table = `${name}'s table`;
+            }
+
+            createRoom.prototype.cleanTable = function(soap){
+                    console.log(`cleaning ${this.table} using ${soap}`);
+                };
+
+            const johnRoom = new createRoom('john');
+            const jillRoom = new createRoom('Jill');
+
+            jillRoom.cleanTable('some soap');
+            johnRoom.cleanTable('some soap');
+            */
+
+            //Class
+            this.table = 'window table';
+
+            this.garage = {
+                table: 'garage table'
+            };
+
+            class createRoom
+            {
+                constructor(name)
+                {
+                    this.table = `${name}'s table`;
+                }
+                cleanTable(soap)
+                {
+                    console.log(`cleaning ${this.table} using ${soap}`);
+                }
+            }
+
+            const johnRoom = new createRoom('john');
+            const jillRoom = new createRoom('Jill');
+
+            jillRoom.cleanTable('some soap');
+            johnRoom.cleanTable('some soap');
+
+        </script>
+    </body>
+</html>

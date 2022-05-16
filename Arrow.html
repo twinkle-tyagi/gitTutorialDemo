@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <script>
+         "use strict";
+         //let square = (a) => { return a*a; }
+         //console.log(square(4));
+
+         /* let rect = (a,b) =>{
+             return a*b;
+         }
+         console.log(rect(2,5)); */
+
+         /*
+         var x = function()
+         {
+             this.val = 1;
+             setTimeout(function(){
+                 this.val++;
+                 console.log(this.val); // this inside setTimeout doesnot recognize this outside setTimeout
+             },1)  // it will give NaN error
+         };
+         var xx = new x();
+         */
+         
+         var x = function()
+         {
+             this.val = 1;
+             setTimeout( () => { // arrow function do not have this of thier own
+                 this.val++; // so refer to this of outside scope.
+                 console.log(this.val);
+             },1)
+         };
+         var xx = new x();
+
+        </script>
+    </body>
+</html>

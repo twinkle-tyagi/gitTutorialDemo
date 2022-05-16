@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <script>
+         var count = 0;
+            class student
+            {
+                
+                constructor(name, age, phone, marks)
+                {
+                    this.name = name;
+                    this.age = age;
+                    this.marks = marks;
+                    this.phone = phone;
+                    count++; // counts each time object is created and constructor is called
+                }
+                check()
+                {
+                    if(this.marks >= 40)
+                    {
+                        console.log('eligible');
+                    }
+                    else if(this.marks < 40)
+                    {
+                        console.log('not eligible');
+                    }
+                } 
+            }
+
+            const s1 = new student('ram', 20, 9988, 47);
+            const s2 = new student('shyam', 19, 9988, 40);
+            const s3 = new student('raju', 21, 9988, 7);
+            const s4 = new student('ramesh', 22, 9988, 97);
+            const s5 = new student('suresh', 23, 9988, 27);
+            s1.check();
+            console.log(count);
+
+        </script>
+    </body>
+</html>
