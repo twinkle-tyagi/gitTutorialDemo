@@ -22,6 +22,7 @@
          var xx = new x();
          */
          
+         /*
          var x = function()
          {
              this.val = 1;
@@ -31,7 +32,62 @@
              },1)
          };
          var xx = new x();
+         */
 
+         class student
+            {
+                
+                constructor(name, age, phone, marks)
+                {
+                    this.name = name;
+                    this.age = age;
+                    this.marks = marks;
+                    this.phone = phone;
+                }
+                eligible()
+                {
+                    let flag = 0;
+                    if(this.marks >= 40)
+                    {
+                        flag = 1;
+                    }
+                    else if(this.marks < 40)
+                    {
+                        flag =0;
+                    }
+                    return (age1) => {
+                            if(this.age <= age1 && flag == 1)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        };
+                } 
+            }
+
+            const s1 = new student('ram', 37, 9988, 47);
+            const s2 = new student('shyam', 19, 9988, 40);
+            const s3 = new student('raju', 23, 9988, 7);
+            const s4 = new student('ramesh', 22, 9988, 97);
+            const s5 = new student('suresh', 23, 9988, 27);
+            
+            let x1 = s1.eligible();
+            console.log(x1(30));
+            
+            let x2 = s2.eligible();
+            console.log(x2(30));
+            
+            let x3 = s3.eligible();
+            console.log(x3(30));
+            
+            let x4 = s4.eligible();
+            console.log(x4(30));
+            
+            let x5 = s5.eligible();
+            console.log(x5(30));
         </script>
     </body>
 </html>
