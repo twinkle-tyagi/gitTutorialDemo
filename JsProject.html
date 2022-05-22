@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <form id = "projectform">
+            <label for = "amount"> amount </label>
+            <input type="text" id="amount">
+            <label for="description"> description </label>
+            <input type="text" id="description">
+            <label for="category"> category </label>
+            <select name = "category" id="category">
+                <option value="food"> food </option>
+                <option value="gift">gift</option>
+                <option value="rent">rent</option>
+                <option value="shopping">shopping</option>
+            </select>
+            <input class="btn" type="submit" id="button" value="submit" onclick="addIt(event)">
+            <ul id="userlist">
+
+            </ul>
+        </form>
+
+        <script src="jsProject.js"> </script>
+    </body>
+</html>

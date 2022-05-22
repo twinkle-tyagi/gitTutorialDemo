@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <script>
+
+          setTimeout(() => {
+              console.log('timer expired');
+          }, 3000);
+
+          setTimeout(() => {
+              console.log('timer2 expired');
+          }, 0);
+
+          function x(y)
+          {
+              console.log('x');
+              y();
+          }
+
+          x(function y() {
+              setTimeout( () => console.log('y'), 0);
+          });
+         
+        </script>
+    </body>
+</html>
