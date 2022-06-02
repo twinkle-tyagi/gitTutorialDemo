@@ -1,0 +1,49 @@
+<html>
+    <body>
+        <script>
+            class stack
+            {
+            
+                top = 0;
+                arr = [];
+
+                push(item)
+                {
+                    this.arr[this.top] = item;
+                    this.top++;
+                    //console.log(this.arr);
+                    console.log(this.arr[this.top-1]);
+                }
+
+                pop()
+                {
+                    if(this.top === 0)
+                    {
+                        console.log("underflow");
+                    }
+                    else
+                    {
+                        console.log("deleted item is ", this.arr[this.top-1]);
+                        this.top--;
+                        this.arr.length = this.arr.length-1;
+                    }
+                }
+
+                show()
+                {
+                    console.log(this.arr);
+                }
+            }
+
+            let obj = new stack();
+            obj.push(5);
+            obj.push(10);
+            obj.pop();
+            obj.show();
+            obj.push(12);
+            obj.show();
+
+
+        </script>
+    </body>
+</html>
