@@ -98,3 +98,9 @@ createPosts({title: 'post three', body: 'this is post three', createdAt: Date.no
     }).catch();
 })
 .catch(err => console.log(err));
+
+const promise1 = Promise.resolve('hello world');
+const promise2  = 10;
+const promise3 = new Promise((resolve,reject) => setTimeout(resolve,2000,'this one'));
+
+Promise.all([promise1,promise2,promise3]).then((val) => console.log(val));
