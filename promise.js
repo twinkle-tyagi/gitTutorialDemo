@@ -71,6 +71,16 @@ function deletePosts()
     });
 }
 
+function updateActivityTime()
+{
+    return new Promise((resolve,reject) => {
+        setTimeout(() =>{
+            posts.createdAt = Date.now();
+            resolve();
+        },1000)
+    });
+}
+
 /*
 createPosts({title: 'post three', body: 'this is post three', createdAt: Date.now()})
 .then(() => {
@@ -84,6 +94,7 @@ createPosts({title: 'post three', body: 'this is post three', createdAt: Date.no
 .catch(err => console.log(err));
 */
 
+/*
 createPosts({title: 'post three', body: 'this is post three', createdAt: Date.now()})
 .then(() => {
     getPosts().then(()=>
@@ -98,9 +109,24 @@ createPosts({title: 'post three', body: 'this is post three', createdAt: Date.no
     }).catch();
 })
 .catch(err => console.log(err));
+*/
 
+
+/*
 const promise1 = Promise.resolve('hello world');
 const promise2  = 10;
 const promise3 = new Promise((resolve,reject) => setTimeout(resolve,2000,'this one'));
 
 Promise.all([promise1,promise2,promise3]).then((val) => console.log(val));
+*/
+
+//Promise.all([createPosts({title: 'post three', body: 'this is post three', createdAt: Date.now()}), updateActivityTime()])
+//.then(getPosts().then(console.log(posts)));
+
+Promise.all([createPosts({title: 'post three', body: 'this is post three', createdAt: Date.now()}), updateActivityTime()])
+.then(() =>{
+    getPosts().then( () =>
+    {
+        deletePosts().then(getPosts().then());
+    })
+});
