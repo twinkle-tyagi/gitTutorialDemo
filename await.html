@@ -1,0 +1,78 @@
+<html>
+    <body>
+        <script > 
+        console.log('person1: show ticket');
+        console.log('person2: show ticket');
+
+        //const preMovie = async () => 'preMovie'; // async to make it asynchronous
+
+        //const preMovie = async () =>{
+
+            const wifeTicket = new Promise((resolve, reject) => {
+                setTimeout(() => resolve('ticket'), 3000);
+            });
+
+            //wifeTicket.then((t) => console.log('person3: ticket'));
+            
+            const getPopcorn = wifeTicket.then((t) => {
+                console.log('wife: I have tickets');
+                console.log('husband: We should go in');
+                console.log('wife: No I am hungry');
+
+                return new Promise((resolve, reject) => resolve(`${t} popcorn`));
+            });
+            //getPopcorn.then((t) => console.log(t));
+
+            const getButter = getPopcorn.then((t) => {
+                console.log(`husband: I have ${t}`);
+                console.log('husband: lets get in');
+                console.log('wife: I want butter on my popcorn');
+                return new Promise((resolve, reject) => resolve('butter'));
+            }); 
+            getButter.then((t) => console.log(t));
+
+            console.log('person4: show ticket');
+            console.log('person5: show ticket');
+
+            /*
+
+            const getPopcorn = new Promise((resolve, reject) => resolve('popcorn'));
+
+            const addButter = new Promise((resolve, reject) => resolve('butter'));
+
+            const addColdDrink = new Promise((resolve, reject) => resolve('cold drink'));
+
+            let ticket = await wifeTicket;
+
+            console.log('wife: I have tickets');
+            console.log('husband: We should go in');
+            console.log('wife: No I am hungry');
+
+            let popcorn = await getPopcorn;
+
+            console.log(`husband: I have ${popcorn}`);
+            console.log('husband: lets get in');
+            console.log('wife: I want butter on my popcorn');
+
+            let butter = await addButter;
+
+            console.log(`husband: I have got ${butter}`);
+            console.log('husband: lets get in');
+            console.log('wife: yes we are getting late');
+
+            let coldDrink = await addColdDrink;
+            
+            console.log('here is your cold drink');
+
+            return ticket;
+    }
+
+        preMovie().then((m) => console.log(`person3: shows ${m}`));
+
+        console.log('person4: show ticket');
+        console.log('person5: show ticket');
+        */
+
+        </script>
+    </body>
+</html>
