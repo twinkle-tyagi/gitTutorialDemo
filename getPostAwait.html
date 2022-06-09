@@ -1,0 +1,65 @@
+<html>
+    <body>
+        <script>
+            const posts = [
+            { title: 'Post one', body: 'this is post one', createdAt: Date.now() },
+            { title: 'Post two', body: 'this is post two', createdAt: Date.now() },
+            ];
+
+                function getPost()
+                {
+                    return new Promise((resolve, reject) => {
+                    setTimeout(()=> {
+                        let output = '';
+                        posts.forEach((post)=> {
+                        output += `<li> ${post.title} is created ${(Date.now()-post.createdAt)/1000} seconds ago</li>`;
+                        });
+                        document.body.innerHTML = output;
+                        resolve();
+                    }, 1000);
+                });
+            }
+
+            /*
+                function createPost(post)
+                {
+                    return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        posts.push({...post, createdAt: Date.now()});
+
+                        const error = false;
+                        if(!error){
+                            resolve();
+                        }
+                        else{
+                            reject();
+                        }
+                    }, 2000);
+                });
+            }
+            */
+
+            const createPost = (post) => new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        posts.push({...post, createdAt: Date.now()});
+
+                        const error = false;
+                        if(!error){
+                            resolve();
+                        }
+                        else{
+                            reject();
+                        }
+                    }, 2000);
+                });
+
+                async function Poste()
+                {
+                    const post1 = await createPost({title: 'post three', body: 'this is post three', createdAt: Date.now()});
+                    const get1 = await getPost(post1);
+                }
+            Poste().then();
+
+        </script>
+    </body>
+</html>
